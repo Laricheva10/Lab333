@@ -1,0 +1,44 @@
+package labs;
+
+public class Main {
+    public static void main(String[] args) {
+        Election election = new Election();
+        
+        election.addCandidate("Алексей");
+        election.addCandidate("Дмитрий");
+        election.addCandidate("Сергей");
+        election.addCandidate("Иван");
+        election.addCandidate("Михаил");
+        election.addCandidate("Андрей");
+        
+        election.showCandidates();
+        System.out.println();
+        
+        election.addNVotesToCandidate("Алексей", 2);
+        election.addNVotesToCandidate("Дмитрий", 3);
+        election.addNVotesToCandidate("Сергей", 1);
+        
+        election.showCandidates();
+        System.out.println();
+        
+        election.removeCandidate("Андрей");
+        
+        election.showCandidates();
+        System.out.println();
+        
+        System.out.println("Общее количество голосов: " + election.getTotalVotes());
+        System.out.println("Победитель: " + election.getWinner());
+        System.out.println("Процент победителя: " + 
+            String.format("%.2f", election.getCandidatePercentage(election.getWinner())));
+        
+        System.out.println();
+        
+        election.showPercentageTable();
+        
+        System.out.println();
+        
+        election.removeCandidatesBelowThreshold(2);
+        
+        election.showCandidates();
+    }
+}
